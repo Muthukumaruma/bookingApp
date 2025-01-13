@@ -1,0 +1,24 @@
+
+
+<h2>Hotel List</h2>
+
+<form method="GET" action="/hotels">
+  <input type="text" name="location" placeholder="Enter location">
+  <button type="submit">Search</button>
+</form>
+
+<!-- Example of listing hotels (if hotels data is passed to the view) -->
+<ul>
+  <% if (hotels && hotels.length > 0) { %>
+    <% hotels.forEach(hotel => { %>
+      <li>
+        <h3><%= hotel.name %></h3>
+        <p><%= hotel.location %></p>
+        <p>Rooms Available: <%= hotel.roomsAvailable %></p>
+        <p>Price per Night: $<%= hotel.pricePerNight %></p>
+      </li>
+    <% }) %>
+  <% } else { %>
+    <p>No hotels found</p>
+  <% } %>
+</ul>

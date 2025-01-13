@@ -1,0 +1,17 @@
+<% layout('layout') %>
+<h2>Book a Room</h2>
+<form method="POST" action="/bookings">
+  <label for="hotelId">Hotel:</label>
+  <select name="hotelId" id="hotelId" required>
+    <% hotels.forEach(hotel => { %>
+      <option value="<%= hotel._id %>"><%= hotel.name %> - <%= hotel.location %></option>
+    <% }) %>
+  </select>
+  <label for="roomsBooked">Rooms:</label>
+  <input type="number" name="roomsBooked" id="roomsBooked" required>
+  <label for="checkIn">Check-in:</label>
+  <input type="date" name="checkIn" id="checkIn" required>
+  <label for="checkOut">Check-out:</label>
+  <input type="date" name="checkOut" id="checkOut" required>
+  <button type="submit">Book</button>
+</form>
